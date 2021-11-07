@@ -1,24 +1,22 @@
-
+const DONE = "Done";
+const InProgress = "In Progress";
+const ToDo = "To Do";
 const list = {
     "create a task": "In Progress",
     "make a bed": "Done",
     "write a post": "To Do",
    };  
    
-   function changeStatus(keyObject, valueObject){
-       if (keyObject in list) {
-           list[keyObject] = valueObject;
+   function changeStatus(key, value){
+       if (key in list) {
+           list[key] = value;
        }else {console.log("ошибка изменения статуса! такой задачи нет");};
    }
-   function addTask(keyObject){
-       list[keyObject] = "To Do";
+   function addTask(key){
+       list[key] = ToDo;
    }
-   function deleteTask(keyObject){
-       if (keyObject in list) {
-           delete list[keyObject];
-       } else {
-           console.log("ошибка удаления задачи! такой задачи нет");
-       }
+   function deleteTask(key){
+      delete list[key];      
    }
    function printKeyToStatus(value){
       let countValue = 0;
@@ -31,15 +29,15 @@ const list = {
     if (countValue == 0) console.log(' -'); 
    }
    function showList (){
-       console.log("ToDo:");
-       printKeyToStatus("To Do");
-       console.log("In Progress:");
-       printKeyToStatus("In Progress");
-       console.log("Done:");
-       printKeyToStatus("Done");
+       console.log(ToDo + ':');
+       printKeyToStatus(ToDo);
+       console.log(InProgress + ':');
+       printKeyToStatus(InProgress);
+       console.log(DONE + ':');
+       printKeyToStatus(DONE);
    }
    //deleteTask('have a walk');
    addTask('have a walk');
    changeStatus("make a bed", "In Progress");
    
-showList();                             
+    showList();                             
