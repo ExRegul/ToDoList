@@ -42,4 +42,4 @@ const list = {
    addTask('have a walk');
    changeStatus("make a bed", "In Progress");
    
-   console.log(showList());
+showList();                             
